@@ -56,11 +56,11 @@ To run the extension code, start `duckdb` with `-unsigned` flag. This will allow
 duckdb -unsigned
 ```
 
-After loading the extension by the file path, you can use the functions provided by the extension (in this case, `rusty_quack()`).
+After loading the extension by the file path, you can use the functions provided by the extension (in this case, `duckseer()`).
 
 ```sql
-LOAD './build/debug/extension/rusty_quack/rusty_quack.duckdb_extension';
-SELECT * FROM rusty_quack('Jane');
+LOAD './build/debug/extension/duckseer/duckseer.duckdb_extension';
+SELECT * FROM duckseer('Jane');
 ```
 
 ```
@@ -68,7 +68,7 @@ SELECT * FROM rusty_quack('Jane');
 │       column0       │
 │       varchar       │
 ├─────────────────────┤
-│ Rusty Quack Jane 🐥 │
+│ DuckSeer Jane 🐥    │
 └─────────────────────┘
 ```
 

@@ -2,6 +2,8 @@ extern crate duckdb;
 extern crate duckdb_loadable_macros;
 extern crate libduckdb_sys;
 
+pub mod forecasting;
+
 use duckdb::{
     core::{DataChunkHandle, Inserter, LogicalTypeHandle, LogicalTypeId},
     vtab::{BindInfo, InitInfo, TableFunctionInfo, VTab},
@@ -50,7 +52,7 @@ impl VTab for HelloVTab {
             output.set_len(0);
         } else {
             let vector = output.flat_vector(0);
-            let result = CString::new(format!("Rusty Quack {} 🐥", bind_data.name))?;
+            let result = CString::new(format!("DuckSeer {} 🐥", bind_data.name))?;
             vector.insert(0, result);
             output.set_len(1);
         }

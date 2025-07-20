@@ -1,0 +1,20 @@
+# name: test/sql/duckseer.test
+# description: test duckseer extension
+# group: [duckseer]
+
+# Before we load the extension, this will fail
+statement error
+SELECT duckseer('Sam');
+----
+Catalog Error: Scalar Function with name duckseer does not exist!
+
+# Require statement will ensure the extension is loaded from now on
+require duckseer
+
+require icu
+
+# Confirm the extension works
+query I
+SELECT * from duckseer('Sam');
+----
+DuckSeer Sam 🐥
